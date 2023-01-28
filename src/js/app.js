@@ -1,8 +1,9 @@
-export default function orderByProps(obj, [key1, key2]) {
+export default function orderByProps(obj, firstKeys) {
   const array1 = [];
   const array2 = [];
+
   for (const key in obj) {
-    if (key === key1 || key === key2) {
+    if (firstKeys.includes(key)) {
       array1.push({ key, value: obj[key] });
     } else {
       array2.push({ key, value: obj[key] });
@@ -22,7 +23,8 @@ export default function orderByProps(obj, [key1, key2]) {
 // const obj = {
 //   name: 'мечник', health: 10, level: 2, attack: 80, defence: 40,
 // };
-// orderByProps(obj, ['name', 'level']);
+// orderByProps(obj, []);
+// orderByProps(obj, ['health', 'attack', 'level']);
 // orderByProps(obj, ['attack', 'defence']);
 // orderByProps(obj, ["name", "defence"]);
 // orderByProps(obj, ["name", "health"]);
